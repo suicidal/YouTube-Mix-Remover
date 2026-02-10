@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube No Music Mix",
+  "version": "1.1",
+  "description": "Prevents YouTube from forcing music mixes",
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "rules",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
